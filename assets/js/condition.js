@@ -50,7 +50,7 @@ if(susan.age >= IG_MIN_AGE) {
  switch (susan.age) {
      // conditions
      case  susan.age >= IG_MIN_AGE:
-        console.log('Congrats you can join instragram!');
+        console.log('Congrats you can join instagram!');
         break;
     case susan.age == IG_MIN_AGE-1:
         console.log('Just one more year and you post boomerangs');

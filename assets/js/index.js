@@ -1,7 +1,47 @@
-// manipulates the behaviour
-let postTitle ="how to center headings on a page"
-let postContent ="Lorem ipsum dolor sit, amet consectetur\
- adipisicing elit. Accusamus blanditiis at voluptatem\
-  recusandae quibusdam magnam aliquid distinctio officiis illum eligendi corrupti asperiores officia nulla excepturi saepe earum, quas iure voluptates suscipit alias cumque reiciendis quaerat nostrum. Vitae, dolores odit doloribus at aut excepturi nostrum harum fugiat cum. Quae beatae magni placeat, quaerat in iusto odio necessitatibus tempora, voluptatibus, iure pariatur mollitia optio distinctio tempore excepturi? Voluptatum magni officiis voluptatem nostrum voluptate eaque? Nulla natus cum similique quos, laboriosam, necessitatibus voluptatem, non itaque odit quas totam."
-let postAuthor ="Brenda Namutebi";
-console.log(postTitle,"***",postContent,"***",postAuthor)
+// accessing elements on the page
+// access using css class
+let button1 = document.getElementsByClassName('btn');
+// console.log(buttons)
+// button.forEach()
+
+// access elements using element id
+let byId= document.getElementById('second');
+let byId2= document.getElementById('seconds'); // this fails since we have no seconds
+
+// access elements with the tag name
+let allH3 = document.getElementsByTagName('h3');
+// console.log(allH3s)
+
+//single element querySelector
+console.log(document.querySelector("#second"));
+console.log('first btn',document.querySelector(".btn"));
+
+// all items using querySelectorAll
+console.log('every btn',document.querySelectorAll(".btn"));
+let inputElem = document.querySelector("input[type='email']")
+
+// simple form processing
+const form = document.querySelector("form")
+let email = form.email;
+let content = form.content;
+let title = form.title;
+
+// process email and get author
+function getAuthor(email){
+  return email? email.substring(0, email.lastIndexOf('@')):'';
+}
+
+form.addEventListener('submit', (e) =>{
+  e.preventDefault();  // stop operations until i say so
+ // console.log("I am the one talking!")
+ let blogBost = {
+   author: getAuthor(email.value),
+   title: title.valueOf,
+   content: content.value,
+
+
+ }
+ console.log('submitted', blogBost)
+})
+
+//console.log(getAuthor('restynassaka3@gmail.com'))

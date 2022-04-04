@@ -80,10 +80,19 @@ let sayName = function(name) {
 }
  sayName("Resty");
 
- setTimeout(function(name="Resty"){
- console.log("Hi", name)
- }, 200)
-
+ //setTimeout(function(name="Resty"){
+ //console.log("Hi", name)
+ //}, 200)
+  
+ // arrow functions are also anonymous
+ // () => value
+ const sayNameV2 = () => console.log("Hi there Resty")
+ const sayNameV3 = (name) => {
+     console.log("Hi there", name);
+ }
+ const addV2 = (a,b) => {
+     return a+b;
+ }
 
 
 

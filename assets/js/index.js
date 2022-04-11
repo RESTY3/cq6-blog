@@ -37,11 +37,56 @@ form.addEventListener('submit', (e) =>{
  let blogBost = {
    author: getAuthor(email.value),
    title: title.valueOf,
-   content: content.value,
+   content: content.value
+}
+ //console.log('submitted', blogBost)
+ createPostCard(blogBost);
+ form.reset;
+});
 
 
- }
- console.log('submitted', blogBost)
-})
+const feed = document.querySelector('#feed');
+function createPostCard(post){
+let cardHolder = document.createElement('div');
+let cardContent = document.createElement('div');
+let postHeader = document.createElement('span');
+let postAuthor =document.createElement('p');
+let postContent =document.createElement('p');
+
+// add data
+postHeader.textContent = post.title;
+postAuthor.textContent = post.author;
+postContent.textContent =post.content;
+
+// add styles
+postHeader.className ='card-title';
+cardHolder.className ='card';
+cardContent.className ='card-content';
+
+// shape up the card
+cardContent.appendChild(postHeader);
+cardContent.appendChild(postAuthor);
+cardContent.appendChild(postContent);
+cardHolder.appendChild(cardContent);
+
+//console.log('final card>>>',cardHolder)
+feed.appendChild(cardHolder);
+
+}
+form.style.padding= '12px';
 
 //console.log(getAuthor('restynassaka3@gmail.com'))
+
+//window.addEventListener('mousemove', e=>{
+  //e.preventDefault()
+  //console.log(e)
+  //console.log(e.offsetX, e.offsetY)
+//})
+
+// input events
+const checkBox = document.querySelector('#remember');
+checkBox.addEventListener('change', function(e){
+  e.preventDefault();
+  e.target.value=!e.target.checked;
+  //console.log(e.target.checked)
+})
